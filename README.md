@@ -7,7 +7,7 @@
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
 
-### Docker first steps
+## Docker first steps
 
 See all images in the docker app
 ```sh
@@ -36,7 +36,7 @@ As you can download an image you can delete that one too, with the follow comman
     docker image rm node:22
 ```
 
-### Containers
+## Containers
 
 Now, we are learning how create and run a container in docker, we are gonna using the mongo images
 
@@ -60,7 +60,7 @@ Now, we run the container
 To know information about the container
 ```sh
     docker ps
-    docker ps -a # Container until are not running
+    docker ps -a # Container info, including the containers that are not running
 ```
 
 As you cant start a containers you can stop them
@@ -74,7 +74,7 @@ You can create a container with a custom name
     docker create --name monguito mongo
 ```
 
-### Port mapping
+## Port mapping
 Now, the container is running and contain mongo as image, but this is not accessible in out computer
 we need to expose a port in order to communicate with the container
 ```sh
@@ -82,7 +82,7 @@ we need to expose a port in order to communicate with the container
     docker create -p27017:27017 --name monguito mongo
 ```
 
-### Logs
+## Logs
 In order to see the logs that the container is doing
 ```sh
     docker logs monguito --follow
@@ -94,12 +94,55 @@ The previous commands works if you want create step by step but you can run only
     docker run --name monguito -p27017:27017 -d mongo
 ```
 
-### Instant
+## Instant
 
 Now, we are going to create an instant of the mongo with a container and variables of environment
 ```sh
     docker create -p27017:27017 --name monguito -e MONGO_INITDB_ROOT_USERNAME=cavidev -e MONGO_INITDB_ROOT_PASSWORD=admin mongo
 ```
+
+## Networks 
+
+in order to communicate containers, we need create a network with the follow command
+
+```sh
+    docker network create mired
+    docker network ls # to see the networks
+    docket network rm mired # to delete
+```
+
+Once we have our network create, we can run the follow command to create a image
+```sh
+    # Please see the Dockerfile first
+    docker build -t miapp:1 .
+```
+
+now, we are creating the mongo container inside of the "mired" network
+
+```sh
+docker create -p27017:27017 --name monguito --network mired -e MONGO_INITDB_ROOT_USERNAME=cavidev -e MONGO_INITDB_ROOT_PASSWORD=admin mongo
+```
+
+now, we are creating a container with the images that we previous build 
+
+```sh
+docker create -p3000:3000 --name chanchito --network mired miapp:1
+```
+
+## Using docker compose
+please see the file docker-compose.yml
+```sh
+    docker compose up
+```
+![create compose](./img/docker-compose-result.PNG)
+
+### Deleting docker compose
+```sh
+    docker compose down
+```
+![Deleting compose](./img/deleting-docker-compose.PNG)
+
+## Volumes
 
 
 [contributors-shield]: https://img.shields.io/github/contributors/cavidev/docker-journey.svg?style=for-the-badge
@@ -113,4 +156,4 @@ Now, we are going to create an instant of the mongo with a container and variabl
 [license-shield]: https://img.shields.io/github/license/cavidev/docker-journey.svg?style=for-the-badge
 [license-url]: https://github.com/cavidev/docker-journey/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/linkedin_username
+[linkedin-url]: https://linkedin.com/in/carlosmariovillafuerte/
