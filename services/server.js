@@ -3,6 +3,7 @@ import mongoose from 'mongoose'
 
 const Animal = mongoose.model('Animal', new mongoose.Schema({
   tipo: String,
+  nombre: String,
   estado: String,
 }))
 
@@ -18,7 +19,8 @@ app.get('/', async (_req, res) => {
 })
 app.get('/crear', async (_req, res) => {
   console.log('creando...')
-  await Animal.create({ tipo: 'Chanchito', estado: 'Feliz' })
+  const count = Animal.count({});
+  await Animal.create({ tipo: count%2 === 0 ? 'terrestre': 'acuatico', nombre: 'Chanchito', estado: 'Feliz' })
   return res.send('ok')
 })
 
