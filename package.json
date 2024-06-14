@@ -1,0 +1,22 @@
+{
+  "name": "docker-journey",
+  "version": "1.0.0",
+  "description": "uploading my first app in docker with container",
+  "main": "index.js",
+  "type": "module",
+  "workspaces": ["services/*"],
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node services/server.js"
+  },
+  "keywords": [
+    "docker",
+    "init",
+    "firstApp",
+    "react"
+  ],
+  "author": "Carlos Villafuerte (cavidev)",
+  "license": "ISC"
+}
