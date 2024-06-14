@@ -1,4 +1,4 @@
-# Docker Container App
+# Docker Container App 
 
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
@@ -6,6 +6,12 @@
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
 [![LinkedIn][linkedin-shield]][linkedin-url]
+
+## Building with
+
+- [![Docker][Docker]][Docker-url]
+- [![Node][Node]][Node-url]
+- [![Express][Express]][Express-url]
 
 ## Docker first steps
 
@@ -144,6 +150,9 @@ please see the file docker-compose.yml
 
 ## Volumes
 
+// docker-journey.svg?style=for-the-badge
+[created-at-shield]: https://img.shields.io/github/created-at/cavidev/docker-journey
+[repo-url]: https://github.com/cavidev/docker-journey/graphs/contributors
 
 [contributors-shield]: https://img.shields.io/github/contributors/cavidev/docker-journey.svg?style=for-the-badge
 [contributors-url]: https://github.com/cavidev/docker-journey/graphs/contributors
@@ -157,3 +166,10 @@ please see the file docker-compose.yml
 [license-url]: https://github.com/cavidev/docker-journey/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/carlosmariovillafuerte/
+
+[Docker]: https://img.shields.io/badge/Docker-2496ED?style=plastic&logo=docker&logoColor=white
+[Docker-url]: https://www.docker.com/
+[Express]: https://img.shields.io/badge/Express.js-000000?style=plastic&logo=express&logoColor=white
+[Express-url]: https://expressjs.com/
+[Node]: https://img.shields.io/badge/Node.js-5FA04E?style=plastic&logo=nodedotjs&logoColor=white
+[Node-url]: https://nodejs.com/
