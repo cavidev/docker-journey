@@ -12,20 +12,21 @@
 - [![Docker][Docker]][Docker-url]
 - [![Node][Node]][Node-url]
 - [![Express][Express]][Express-url]
+- [![Mongo][Mongo]][Mongo-url]
 
-## Docker first steps
+## 1. Docker first steps
 
-See all images in the docker app
+List all images in the docker app
 ```sh
     docker images
 ```
 
-To download the later images e.g. node images for this example
+To download the later images e.g. node image (this will use for this example)
 ```sh
     docker pull node
 ```
 
-If you want choose a version, only needs add the version after :
+If you want choose a version, only need to add the version after :
 ```sh
     docker pull node:22
 ```
@@ -37,16 +38,16 @@ You can download as many images as you want.
     docker pull node:22
 ```
 
-As you can download an image you can delete that one too, with the follow command
+As you can download an image you can delete that one too, with the following command
 ```sh
     docker image rm node:22
 ```
 
-## Containers
+## 2. Containers
 
-Now, we are learning how create and run a container in docker, we are gonna using the mongo images
+Now, we are going to learn how create and run a container in docker, we are going to use the mongo image
 
-Download the images in docker
+Download the images that you want install
 ```sh
     docker pull mongo
 ```
@@ -80,7 +81,9 @@ You can create a container with a custom name
     docker create --name monguito mongo
 ```
 
-## Port mapping
+![Diagram1](./img/diagram-mongo-container.png)
+
+## 3. Port mapping
 Now, the container is running and contain mongo as image, but this is not accessible in out computer
 we need to expose a port in order to communicate with the container
 ```sh
@@ -88,7 +91,7 @@ we need to expose a port in order to communicate with the container
     docker create -p27017:27017 --name monguito mongo
 ```
 
-## Logs
+## 4. Logs
 In order to see the logs that the container is doing
 ```sh
     docker logs monguito --follow
@@ -100,14 +103,14 @@ The previous commands works if you want create step by step but you can run only
     docker run --name monguito -p27017:27017 -d mongo
 ```
 
-## Instant
+## 5. Instant
 
 Now, we are going to create an instant of the mongo with a container and variables of environment
 ```sh
     docker create -p27017:27017 --name monguito -e MONGO_INITDB_ROOT_USERNAME=cavidev -e MONGO_INITDB_ROOT_PASSWORD=admin mongo
 ```
 
-## Networks 
+## 6. Networks 
 
 in order to communicate containers, we need create a network with the follow command
 
@@ -135,7 +138,7 @@ now, we are creating a container with the images that we previous build
 docker create -p3000:3000 --name chanchito --network mired miapp:1
 ```
 
-## Using docker compose
+## 7. Using docker compose
 please see the file docker-compose.yml
 ```sh
     docker compose up
@@ -148,11 +151,9 @@ please see the file docker-compose.yml
 ```
 ![Deleting compose](./img/deleting-docker-compose.PNG)
 
-## Volumes
+## 8. Volumes
 
-// docker-journey.svg?style=for-the-badge
-[created-at-shield]: https://img.shields.io/github/created-at/cavidev/docker-journey
-[repo-url]: https://github.com/cavidev/docker-journey/graphs/contributors
+...
 
 [contributors-shield]: https://img.shields.io/github/contributors/cavidev/docker-journey.svg?style=for-the-badge
 [contributors-url]: https://github.com/cavidev/docker-journey/graphs/contributors
@@ -173,3 +174,5 @@ please see the file docker-compose.yml
 [Express-url]: https://expressjs.com/
 [Node]: https://img.shields.io/badge/Node.js-5FA04E?style=plastic&logo=nodedotjs&logoColor=white
 [Node-url]: https://nodejs.com/
+[Mongo]: https://img.shields.io/badge/Mongo.js-47A248?style=plastic&logo=mongodb&logoColor=white
+[Mongo-url]: https://www.mongodb.com/
