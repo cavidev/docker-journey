@@ -81,7 +81,7 @@ You can create a container with a custom name
     docker create --name monguito mongo
 ```
 
-![Diagram1](./img/diagram-mongo-container.png)
+![Diagram1](./img/diagram1-mongo-container.png)
 
 ## 3. Port mapping
 Now, the container is running and contain mongo as image, but this is not accessible in out computer
