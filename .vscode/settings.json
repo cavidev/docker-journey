@@ -1,0 +1,17 @@
+{
+    "standard.enable": true,
+    "standard.autoFixOnSave": true,
+    "standard.run": "onSave",
+    "standard.workingDirectories": [
+        
+    ],
+    "standard.validate":[
+        "javascript",
+        "javascriptreact",
+    ],
+    "files.autoSave": "off",
+    "editor.formatOnSave": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+}

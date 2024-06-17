@@ -18,6 +18,9 @@
     "firstApp",
     "react"
   ],
+  "eslintConfig": {
+    "extends": "standard"
+  },
   "author": "Carlos Villafuerte (cavidev)",
-  "license": "ISC"
+  "license": "MIT"
 }

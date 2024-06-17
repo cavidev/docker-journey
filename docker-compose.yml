@@ -1,16 +1,23 @@
-# Especificar la version 
+# Especificar la version
 version: "3.9"
-services: 
-  chanchito:
+services:
+  zoo:
     build: .
     ports:
       - "3000:3000"
     links:
-      - monguito
-  monguito:
+      - animals
+  animals:
     image: mongo
     ports:
       - "27017:27017"
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=cavidev 
+      - MONGO_INITDB_ROOT_USERNAME=cavidev
       - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - mongo-data:/data/db
+      # Search where the data is saving in each database
+
+volumes:
+  # You can choose a name
+  mongo-data:
