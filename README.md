@@ -222,6 +222,37 @@ services:
     docker-compose -f docker-compose-dev.yml up
 ```
 
+```yml
+version: "3.9"
+services:
+  zoo:
+    build:
+      # app context - mounted
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    links:
+      - animals
+    # Where the app is mounted (. <hostDirection>)
+    volumes:
+      - .:/home/app # Manage by host
+  animals:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=cavidev
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - mongo-data:/data/db # Manage by docker
+      # Search where the data is saving in each database
+
+volumes:
+  # You can choose a name
+  mongo-data: # create the volume manage by docker
+```
+
 <div style="text-align: center;">
     <img src="./img/diagram4-dev.PNG" />
 </div>
