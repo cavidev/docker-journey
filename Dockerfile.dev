@@ -1,0 +1,23 @@
+# De que imagen se basa y la version de la imagen
+FROM node:22
+
+# Instalar dependencias de node
+RUN npm i -g nodemon
+
+# El directorio donde se va a ejecuar la aplicacion -codigo fuente
+# en el contenedor
+RUN mkdir -p /home/app
+
+# Vamos a estatr trabajando en esa ruta en particular
+# podemos eliminar la ruta completa en el CMD
+WORKDIR /home/app
+
+# Donde va a obtener la aplicacion para copiarla en la direccion anterior
+# en desarrollo esto va a ser referenciado por el enlace simbolico
+# COPY /services /home/app
+
+#exponer un puerto para conectarse a la app
+EXPOSE 3000
+
+#Para ejecutarlo
+CMD ["nodemon", "services/server.js"]

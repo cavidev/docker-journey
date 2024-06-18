@@ -149,13 +149,14 @@ Once we have our network create, we can run the follow command to create a image
 now, we are creating the mongo container inside of the "mired" network
 
 ```sh
-docker create -p27017:27017 --name animals --network mired -e MONGO_INITDB_ROOT_USERNAME=cavidev -e MONGO_INITDB_ROOT_PASSWORD=admin mongo
+    docker create -p27017:27017 --name animals --network mired -e MONGO_INITDB_ROOT_USERNAME=cavidev -e MONGO_INITDB_ROOT_PASSWORD=admin mongo
 ```
 
 now, we are creating a container with the images that we previous build
 
 ```sh
-docker create -p3000:3000 --name zoo --network mired miapp:1
+    #docker create -p<machinePort>:<dockerPort> --name <containerName> --network <networkName> <imageName>:<imageTag>
+    docker create -p3000:3000 --name zoo --network mired miapp:1
 ```
 
 ## 7. Using docker compose
@@ -216,6 +217,14 @@ services:
 </div>
 
 ## Creating a dev enviroment
+
+```sh
+    docker-compose -f docker-compose-dev.yml up
+```
+
+<div style="text-align: center;">
+    <img src="./img/diagram4-dev.PNG" />
+</div>
 
 [contributors-shield]: https://img.shields.io/github/contributors/cavidev/docker-journey.svg?style=for-the-badge
 [contributors-url]: https://github.com/cavidev/docker-journey/graphs/contributors

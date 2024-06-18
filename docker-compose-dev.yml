@@ -1,0 +1,30 @@
+# Especificar la version
+version: "3.9"
+services:
+  zoo:
+    build:
+      # contexto de mi aplicacion - de aqui sale el mounted
+      context: .
+      # El archivo que vamos a usar para construirlo
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    links:
+      - animals
+    # El volume anonimo que vamos a usar para armar nuestra app
+    volumes:
+      - .:/home/app # Gestionado por host
+  animals:
+    image: mongo
+    ports:
+      - "27017:27017"
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=cavidev
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    volumes:
+      - mongo-data:/data/db # gestionado por docker
+      # Search where the data is saving in each database
+
+volumes:
+  # You can choose a name
+  mongo-data: # crea un volume gestionado por docker

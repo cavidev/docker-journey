@@ -20,7 +20,7 @@ mongoose.connect(
 );
 
 app.get("/", async (_req, res) => {
-  console.log("listando... zoo...");
+  console.log("listando... zoo... adding words");
   const animales = await Animal.find();
   return res.send(animales);
 });
